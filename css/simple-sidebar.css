@@ -1,0 +1,150 @@
+/*
+<!-- Assignment BootStrap and jQuery  
+/**********************************************************
+* Author: Callum McLeman
+* Assignment: WE3.0 PHP Web App Assignment, Digital Skills Academy
+* Student ID: DT7003
+* Date : 2016/07/18
+* 
+* Side-bar css Menu layout courtesy of: http://blackrockdigital.github.io/startbootstrap-simple-sidebar/ 
+***********************************************************/
+/* this was great fun to take apart! Will be over-rideing colours, widths later
+/* from the assignment2.css file held classes...
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+ body {
+    overflow-x: hidden;
+ }
+
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 170px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 170px;
+    width: 0;
+    height: 100%;
+    margin-top: 00px;
+    margin-left: -170px;
+    overflow-y: auto;
+    background: #002366;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 170px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -170px;
+}
+
+/* Sidebar Styles */
+/* adjusted the width from 250 to 200 px*/
+.sidebar-nav {
+    position: absolute;
+    /* added extra top px's to allow for the hamburger button*/
+    top: 50px;
+    width: 170px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 0px;
+    line-height: 40px;
+    font-size: 18px;
+    text-align: center;
+
+
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #FFF999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+    color: #FFFFFF;
+
+}
+
+/*.sidebar-nav > .sidebar-brand a {
+    color: #FFFFFF;
+}*/
+
+/*.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+*/
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 170px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 170px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}

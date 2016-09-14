@@ -1,0 +1,386 @@
+<!doctype html>
+<html>
+<!-- Assignment BootStrap and jQuery  time.html
+/**********************************************************
+* Author: Callum McLeman
+* Assignment: WE4.0 Web App Assignment, Digital Skills Academy
+* Student ID: DT7003
+* Date : 2016/07/18
+* 
+* Side-bar css Menu layout courtesy of: http://blackrockdigital.github.io/startbootstrap-simple-sidebar/ - (altered)
+glyph-icons thanks to : http://glyphicons.com/ ( held in directory/folder "/fonts" )
+Jquery ref: api.jQuery.com
+https://www.sitepoint.com/community/t/jquery-slide-left-to-right/4713
+https://bootstrapbay.com/blog/bootstrap-3-carousel-tutorial/ = help with the rightfile
+https://ajax.googleapis.com/ajax/jquery/1.11.0/jquery.min.js for carousel function to work
+a quirk with the "#myAccordion"  the text content was visible in this page
+and not in other test runs with the same jquery/bs files in a stand alone page
+alone and with the carousel in row/col page set up.. anyways I re-vamped with help from
+http://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=accordion - was fun though learnt loads! 
+All pics are public domain.
+***********************************************************/
+-->
+
+	<html lang="en">
+	<head>
+		  <!-- set up environment -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="Bootstrap and jQuery assignment">
+      <meta name="author" content="Callum McLeman">
+      <title>
+      BootStrap and jQuery - Web App Assignment.</title>
+          
+      <!-- Bootstrap -->
+      <link href="css/bootstrap.min.css" rel="stylesheet" >
+      <link href="css/bootstrap.theme.min.css" rel="stylesheet" >
+      <!-- Required for 'home cooked' css file pointer/setup -->
+      <link rel="stylesheet" type="text/css" href="css/assignment2.css">
+      <!-- borrowed side bar menu css file -->
+      <link href="css/simple-sidebar.css" rel="stylesheet">
+      <!-- jQuery tool-kit files 
+      <script src="js/jquery-2.2.4.js"></script>
+      <script src="js/jquery-ui-1.10.3.custom.min.js"></script> -->
+      
+      <script src="js/jquery-2.2.4.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+    
+      <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+      <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="js/jquery-ui-1.10.3.custom.min.js"></script>-->
+      <!--<script src="js/test.js"></script>
+      <script src="js/jquery-2.2.4.js"></script>
+      <script src="js/bootstrap.min.js"></script> -->
+    	
+      <script>
+      //http://blackrockdigital.github.io/startbootstrap-simple-sidebar/
+        $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+        });
+      
+      </script>
+      <script type="text/javascript">
+
+        $(document).ready(function(){
+           
+          
+          var fivePercenter = 0;
+          for (var c = 0; c < 20; c++) {
+            // loop around mockup prog bar updating the attributes ...
+           
+            var fivePercenter = fivePercenter +5;
+            $('#progContent').attr("aria-valuenow", fivePercenter);
+            $('#progContent').attr("style", "width:"+fivePercenter+"%");
+            $('#progContent').html(fivePercenter+"%");
+              
+            // wait/delay pc a bit.. loop
+            var momentOfTime = new Date(); // datetime obj for timer
+            var timeNow = new Date(); // ref point in time
+            var myTimeSpan = 60*1000; // 1 second in milliseconds
+            // delay the pc a while...
+            momentOfTime = momentOfTime + myTimeSpan;
+            //compare loop with 'now' and one second in the future
+            for (var i = timeNow; i < momentOfTime; i++) {
+              // space out a second..
+                
+            }
+          }
+
+          $( "#accordion .btn" ).on( "click", function() {
+            //  bind the buttons in the accordion for theme/pics change  
+            var btnFile =""          
+            btnFile = $(this).attr("id");
+            btnFile = btnFile.substr(btnFile.length - 1);
+            btnFile = btnFile.toUpperCase();
+            //alert(btnFile);
+            var filePath = "";
+            //loadPics(btnFile);
+            if (btnFile == "X") {
+              //alert(btnFile+" if");
+              filePath = "images/mind";
+
+            }
+            if (btnFile == "I") {
+              filePath = "images/toys";
+              //alert(btnFile+" if");
+            }
+
+            if (btnFile == "W"){
+              filePath = "images/lady";
+              //alert(btnFile+" if");
+            }
+            //alert(filePath);
+            var newImage = ""
+            for (var i = 1; i <= 5; i++) {
+                            
+              newImage = filePath+i+".jpg";
+              imageIdHolder = "#pic"+i;
+              //alert(newImage);
+              $(imageIdHolder).attr("src", newImage);
+            }
+
+          });
+
+          $(function(){
+            $('#myCarousel').carousel();
+          });
+       
+          $(function(){
+            $("#myThumbAccordion").accordion();
+          });
+
+          //delay load to allow progress bar effect...
+          setTimeout(timelapsed, 1000);
+
+          //$( "body").detatch('#myProgBar');
+          //$('#myProgBar').hide();
+          //$("#myProgBar").remove();
+
+          $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+          });
+                 
+        });
+        
+
+        function timelapsed(){
+          $("#page-content-wrapper" ).toggle( "slide" );
+          $('#myProgBar').hide();
+        }
+      
+        
+      </script>
+	</head>
+
+	<body class="time">
+    <body class="time">
+     <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div  id="sidebar-wrapper">
+
+            <ul class="sidebar-nav">
+
+                <li>
+                    <a href="assignment2.html">Volcanos</a>
+                </li>
+                <li>
+                    <a href="aura.html">Aura Borealis</a>
+                </li>
+                <li>
+                    <a href="art.html">Art Gallery</a>
+                </li>
+                <li>
+                    <a href="time.html">Time Machine</a>
+                </li>
+                <li>
+                    <a  class="dead-link" href="#">About</a>
+                </li>
+                <li>
+                    <a  class="dead-link" href="#">Services</a>
+                </li>
+                <li>
+                    <a  class="dead-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <!-- end of list layout for menu -->
+            <!-- stick an image in here? -->
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div class="hide-me" id="page-content-wrapper">
+            <div class="container">
+            <!-- fixed 'hamburger' menu btn top left -->
+                <nav class="navbar navbar-fixed-top">
+                    <div class="container">
+                        <!-- setup on/off menu bar button -->
+                        <div class="navbar-header">
+                            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle" data-toggle="tooltip" title="Show/Hide Side-bar">
+                        <span> <img src="fonts/glyphicons-517-menu-hamburger.png"> </span></a>
+
+                        </div>
+                    </div>
+                </nav>
+            <!-- incorporate the grid system for displays -->
+                <div class="row">
+                    <div class="col-md-10">
+                        
+                        
+                        <h1> Etiam eleifend sem risus, porta </h1>
+                        <p  class="harder-font-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar sed ex sed maximus. Etiam eleifend sem risus, porta pretium augue tempus at. Morbi sagittis viverra velit eu finibus. Suspendisse gravida, justo vitae varius rhoncus, mi ligula consequat libero, eu tincidunt ex elit in felis. Integer vel tempus dui. Morbi gravida hendrerit justo et auctor. Morbi feugiat consequat rhoncus. Nunc imperdiet dictum pharetra. Aliquam consectetur ante non erat auctor aliquam. </p>
+                
+                        
+                    </div>
+                    <div class="col-md-2">
+              
+                     <div class="img-corner-box">
+                        <img class="img-fluid picfix2" src="images/hourglass.jpg" >
+                      </div>
+                      
+                    </div>
+    
+                </div>
+                
+                <div class="row">
+                 
+                  <div class="col-md-8">
+                    
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
+                    <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                        <li data-target="#myCarousel" data-slide-to="3"></li>
+                        <li data-target="#myCarousel" data-slide-to="4"></li>
+                      </ol>
+ 
+                      <!-- Wrapper for slides -->
+                      <div class="carousel-inner carous-fix">
+                        <div class="item active">
+                          <img id="pic1" src="images/mind1.jpg" alt="...">
+                          <div class="carousel-caption">
+                            <h3>Caption Text</h3>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img id="pic2" src="images/mind2.jpg" alt="...">
+                          <div class="carousel-caption">
+                            <h3>Caption Text</h3>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img id="pic3" src="images/mind3.jpg" alt="...">
+                          <div class="carousel-caption">
+                            <h3>Caption Text</h3>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img id="pic4" src="images/mind4.jpg" alt="...">
+                          <div class="carousel-caption">
+                            <h3>Caption Text</h3>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img id="pic5" src="images/mind5.jpg" alt="...">
+                          <div class="carousel-caption">
+                            <h3>Caption Text</h3>
+                          </div>
+                        </div>
+                      </div>
+ 
+                      <!-- Controls -->
+                      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                      </a>
+                      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                      </a>
+                    </div> <!-- Carousel -->
+                  </div>
+                  <div class="col-md-4">
+                 
+                    <div class="row">
+                      <div class="panel-group panelAccordbox" id="accordion">
+                          <div class="panel panel-default">
+                            <div class="panel-heading">
+                              <h3 class="panel-title"
+                              data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">Great Minds
+                              </h3>
+                            </div>
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                              <div class="panel-body">
+                                <div class = "thumbnail">
+                                  <img src = "images/mindx.jpg" alt = "Oops!">
+                                </div>
+                              <div class = "caption">
+                                <h4>Lorem ipsum dolor</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar sed ex sed maximus</p>
+                                <p>
+                                <center>
+                                  <a id="mindx" href = "#" class = "btn btn-primary " role = "button">Run Slides</a> 
+                                </center>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                          <div class="panel-heading">
+                            <h3 class="panel-title"
+                            data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">Great Inventions
+                            </h3>
+                          </div>
+                          <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                              <div class = "thumbnail">
+                                <img src = "images/mindi.jpg" alt = "Oops!">
+                              </div>
+                            <div class = "caption">
+                              <h4>Lorem ipsum dolor</h4>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar sed ex sed maximus</p>
+                              <p>
+                              <center>
+                              <a id="mindi" href = "#" class = "btn btn-primary " role = "button">Run Slides</a>
+                              </center>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="panel panel-default">
+                        <div class="panel-heading">
+                        <h3 class="panel-title"
+                        data-toggle="collapse" data-parent="#accordion" data-target="#collapseThree">Great Women
+                        </h3>
+                      </div>
+                      <div id="collapseThree" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <div class = "thumbnail">
+                            <img src = "images/mindw.jpg" alt = "Oops!">
+                          </div>
+                          <div class = "caption">
+                            <h4>Lorem ipsum dolor</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar sed  ex sed maximus</p>
+                            <p>
+                            <center>
+                            <a id="mindw" href = "#" class = "btn btn-primary" role = "button">Run Slides</a> 
+                            </center>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- id accordion -->
+                  </div>
+                  <!-- wide col -->
+
+                </div>
+                <!-- </div>   gallery row -->     
+                
+                       
+            </div>
+            <!-- container cllas div -->
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+   <div id="myProgBar" class="progress progpos">
+      <div id="progContent" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%">
+        0%
+    </div>
+    </div>
+    <!-- /#wrapper -->
+<!-- to make this work: a loop; each count update attr aria-valuenow and the html/text 0% - 100% -->
+    
+   
+ 
+	</body>
+</html>

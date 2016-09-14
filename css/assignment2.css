@@ -1,0 +1,267 @@
+/*-- Assignment2.css file --
+/**********************************************************
+* Author: Callum McLeman
+* Assignment: WE4.0 Web App Assignment, Digital Skills Academy
+* Student ID: DT7003
+* Date : 2016/07/18
+* 
+* Side-bar css Menu main design/layout 
+courtesy of: http://blackrockdigital.github.io/startbootstrap-simple-sidebar/ - (altered by me)
+glyph-icons thanks to : http://glyphicons.com/ ( held in directory/folder "/fonts" )
+CSS ref: (various locations) http://getbootstrap.com/css/
+
+***********************************************************/
+/* hist - thumbs */
+.dead-link {
+	cursor: not-allowed;
+}
+.carousel-inner {
+	
+	background-color: #FFA500;
+	color: #000000;
+}
+.carousel-inner img {
+  margin: auto;
+}
+.col-fix{
+	width:50%;
+
+}
+
+.panelAccordbox h3 {
+	background-color: #800000;
+	color: #FFFF00;
+	cursor: pointer;
+	text-align: center;
+}
+
+.tweak img {
+	height: 100%;
+	width: 100%;
+	-webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+ 	border-radius: 5px;
+	
+}
+
+/* carousel styling */
+.cont-carousel {
+	max-width: 66%;
+	max-height: 33%;
+}
+
+
+/*.slide {
+	background-color:#fff;
+}
+
+
+.slide1 {
+	background-image: url("images/mind1.jpg");
+	height: 300px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.slide2 {
+	background-image: url("../images/mind2.jpg");
+	height: 300px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.slide3 {
+	background-image: url("../images/mind3.jpg");
+	height: 300px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.slide4 {
+	background-image: url("../images/mind4.jpg");
+	height: 300px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.slide5 {
+	background-image: url("../images/mind5.jpg");
+	height: 300px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+*/
+
+.carousel-caption h1 {
+	font-size: 5.4em;
+	/*font-family: 'Pacifico', cursive;*/
+	padding-bottom: .4em;
+}
+.carousel-caption p {
+	font-size: 2em;
+							}
+
+/* progress bar*/
+.progpos {
+	position: fixed;
+	top: 40%;
+	left: 35%;
+	width: 25%;
+}
+
+/* font size, bold and centered for info paragraphs*/
+.center-bold {
+	font-weight: bold;
+	font-size: 14;
+	text-align:center;
+	padding: 5px;
+}
+/*font size, bold left align for top/header paragraphs*/
+.harder-font-left {
+	font-weight: bold;
+	font-size: 14;
+	text-align:left;
+
+}
+/* hide-me class for use with effects/transitions*/
+.hide-me {
+	/*visibility: hidden;*/
+	display: none;
+}
+/* consistant image size class */
+.picfix2 {
+	display: block;
+	height: auto;
+	width: 80%;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	margin-left: auto;
+    margin-right: auto;
+  
+
+}
+/* body back grnd and text colour for aura.html */
+.aura {
+	background-color: #000000;
+	color: #FFA500;
+}
+/*  bgrnd for time.html*/
+.time {
+	background-color: #FFA500;
+	color: #000000;
+
+}
+/* for the top right pic */
+.img-corner-box {
+
+	
+	
+	width: 150px;
+	height: auto;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	border-bottom-left-radius: 5px;
+	align: right;
+	padding: 5px
+}
+.artbody {
+	background-color: #98AFC7;
+	color: #0C090A;
+
+}
+
+.arthead{
+	background-color: #800000;
+	color: #FFFF00;
+	cursor: pointer;
+	/*font-weight: bold;*/
+}
+
+/* help from design shack - see refs above , adapted to my needs*/
+.artbox {
+ width: 80%;
+ margin: 5px auto;
+ overflow: hidden;
+}
+
+.galleryItem {
+ color: #0C090A;
+ font: 10px/1.5 Verdana, Helvetica, sans-serif;
+ float: left;
+ width: 16%;
+ margin:  2% 2% 50px 2%; 
+}
+ .viewTitle h2 {
+ 	color: #0C090A;
+ 	font: 20px/1.5 Verdana, Helvetica, sans-serif;
+ 	text-transform: uppercase;
+
+ }
+
+ .hisThumbs {
+ 	height: 40%;
+ 	text-align: center;
+ 	
+
+ }
+ .hisThumbs h2 {
+ 	background-color: #800000;
+	color: #FFFF00;
+ 	font: 20px/1.5 Verdana, Helvetica, sans-serif;
+ 	text-transform: uppercase;
+ 	cursor: pointer;
+ 	
+ }
+.galleryItem h3 {
+ text-transform: uppercase;
+}
+ 
+.galleryItem img {
+ max-width: 100%;
+ max-height: 100%;
+ -webkit-border-radius: 5px;
+ -moz-border-radius: 5px;
+ border-radius: 5px;
+}
+
+/* .trans {
+background-color: black;
+transition: background-color 2s;
+}
+
+.trans:hover { background-color: silver; }
+*/
+/* stuff for the 'shadow' and popup pic viewer*/
+#pop_background {
+	position:fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #000;
+	opacity: .5;
+	z-index: 1000;
+	display: none;
+	margin:0;
+	padding:0;
+}
+
+#pop_pic {
+	position: fixed;
+	display: none;
+	top: 5%;
+	left: 25%;
+	background: #800000;
+	border:5px solid #2c3539;
+	border-radius: 5px; 
+	z-index: 1500;
+	padding:5px;
+	width: 50%;
+	height: auto;
+	text-align: center;
+	overflow: hidden;
+}

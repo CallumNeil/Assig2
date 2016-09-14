@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<!-- Assignment BootStrap and jQuery  assignment2.html
+/**********************************************************
+* Author: Callum McLeman
+* Assignment: WE4.0 Web App Assignment, Digital Skills Academy
+* Student ID: DT7003
+* Date : 2016/07/18
+* 
+* Side-bar css Menu layout courtesy of: http://blackrockdigital.github.io/startbootstrap-simple-sidebar/ - (altered)
+glyph-icons thanks to : http://glyphicons.com/ ( held in directory/folder "/fonts" )
+Jquery ref: api.jQuery.com
+https://www.sitepoint.com/community/t/jquery-slide-left-to-right/4713
+all pics are public domain unless otherwise stated
+***********************************************************/
+-->
+
+	<html lang="en">
+	<head>
+		  <!-- set up environment -->
+		  <meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta name="description" content="Bootstrap and jQuery assignment">
+    	<meta name="author" content="Callum McLeman">
+    	<title>
+			BootStrap and jQuery - Web App Assignment.
+		  </title>
+    	  	
+    	<!-- Bootstrap -->
+    	<link href="css/bootstrap.min.css" rel="stylesheet" >
+    	<link href="css/bootstrap.theme.min.css" rel="stylesheet" >
+      <script src="js/bootstrap.min.js"></script>
+      <!-- Required for 'home cooked' css file pointer/setup -->
+      <link rel="stylesheet" type="text/css" href="css/assignment2.css">
+      <!-- borrowed side bar menu css file -->
+      <link href="css/simple-sidebar.css" rel="stylesheet">
+      <!-- jQuery tool-kit files -->
+      <script src="js/jquery-1.9.1.min.js"></script>
+      <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+     
+      
+      <script type="text/javascript">
+          //fade-in the hidden content div and pics after load
+          $(document).ready(function(){
+              
+            //$( "#page-content-wrapper" ).fadeIn(1500);
+            //$("#page-content-wrapper").animate({ width: 'show' });
+              
+            $("#page-content-wrapper" ).toggle( "slide" ); 
+             
+              /*
+            SlideDown: .animate({ height: 'show' }); 
+            SlideUp: .animate({ height: 'hide }); 
+            SlideRight: .animate({ width: 'show' }); 
+            SlideLeft: .animate({ width: 'hide' }); */
+
+            
+          });
+
+      </script>
+	</head>
+
+	<body>
+	   <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div  id="sidebar-wrapper">
+
+            <ul class="sidebar-nav dead-link">
+
+                <li>
+                    <a href="assignment2.html">Volcanos</a>
+                </li>
+                <li>
+                    <a href="aura.html">Aura Borealis</a>
+                </li>
+                <li>
+                    <a href="art.html">Art Gallery</a>
+                </li>
+                <li>
+                    <a href="time.html">Time Machine</a>
+                </li>
+                <li>
+                    <a class="dead-link" href="#">About</a>
+                </li>
+                <li>
+                    <a class="dead-link" href="#">Services</a>
+                </li>
+                <li>
+                    <a class="dead-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <!-- end of list layout for menu -->
+            <!-- stick an image in here? -->
+            
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div class="hide-me" id="page-content-wrapper">
+            <div class="container">
+            <!-- fixed 'hamburger' menu btn top left -->
+                <nav class="navbar navbar-fixed-top">
+                    <div class="container">
+                        <!-- setup on/off menu bar button -->
+                        <div class="navbar-header">
+                            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle" data-toggle="tooltip" title="Show/Hide Side-bar">
+                        <span> <img src="fonts/glyphicons-517-menu-hamburger.png"> </span></a>
+
+                        </div>
+                    </div>
+                </nav>
+            <!-- incorporate the grid system for displays -->
+                <div class="row">
+                    <div class="col-md-10 colfix-head">
+                        
+                        
+                        <h1> Aliquam pulvinar sed ex sed maximus.</h1>
+                        <p  class="harder-font-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar sed ex sed maximus. Etiam eleifend sem risus, porta pretium augue tempus at. Morbi sagittis viverra velit eu finibus. Suspendisse gravida, justo vitae varius rhoncus, mi ligula consequat libero, eu tincidunt ex elit in felis. Integer vel tempus dui. Morbi gravida hendrerit justo et auctor. Morbi feugiat consequat rhoncus. Nunc imperdiet dictum pharetra. Aliquam consectetur ante non erat auctor aliquam. </p>
+                        
+                        
+                    </div>
+                    <div class="col-md-2 colfix-corner ">
+                                        
+                      <div class="img-corner-box">
+                      <!--<img class="img-responsive img-fluid picfix2" src="images/cr_tricolour.jpg" > -->
+                        <img class="img-fluid picfix2" src="images/cr_tricolour.jpg" >
+                      </div>
+                    </div>
+                    
+
+                </div>
+                <div class="row dummy-row"></div>
+                <div class="row">
+                  <div class="col-md-6 col-fix">
+                    
+                      
+                      <img class="img-fluid picfix2" src="images/cr_barva.jpg" data-toggle="tooltip" title="Barva">
+                      
+                    
+                      <p class="center-bold">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar sed ex sed maximus. Etiam eleifend sem risus, porta pretium augue tempus at. Morbi sagittis viverra velit eu finibus. Suspendisse gravida, justo vitae varius rhoncus, mi ligula consequat libero, eu tincidunt ex elit in felis. 
+                      </p>
+                      
+                  </div>
+                  
+                  <div class="col-md-6 col-fix">
+                    
+                    <img class="img-fluid picfix2" src="images/cr_arenal_boom.jpg" data-toggle="tooltip" title="Arenal">
+                       
+                    <p class="center-bold" data-toggle="tooltip" title="Crazy Latin">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar sed ex sed maximus. Etiam eleifend sem risus, porta pretium augue tempus at. Morbi sagittis viverra velit eu finibus. Suspendisse gravida, justo vitae varius rhoncus, mi ligula consequat libero, eu tincidunt ex elit in felis
+                    </p>
+                    
+                  </div>
+                              
+                </div>
+                <!-- second row and cols -->
+                <div class="row">
+                  <div class="col-md-6 col-fix">
+                    
+                    <img class="img-fluid picfix2" src="images/cr_poas.jpg" data-toggle="tooltip" title="Poas">
+                                        
+                    <p class="center-bold">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar sed ex sed maximus. Etiam eleifend sem risus, porta pretium augue tempus at. Morbi sagittis viverra velit eu finibus. Suspendisse gravida, justo vitae varius rhoncus, mi ligula consequat libero, eu tincidunt ex elit in felis. 
+                    </p>
+                    
+                  </div>
+                  
+                  <div class="col-md-6 col-fix">
+                    
+                    <img class="img-fluid picfix2" src="images/cr_turrialba.jpg" data-toggle="tooltip" title="Turrialba">
+                       
+                    <p class="center-bold">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar sed ex sed maximus. Etiam eleifend sem risus, porta pretium augue tempus at. Morbi sagittis viverra velit eu finibus. Suspendisse gravida, justo vitae varius rhoncus, mi ligula consequat libero, eu tincidunt ex elit in felis
+                    </p>
+
+                  </div>
+                              
+                </div>
+
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+	
+
+    
+
+   <script>
+    //http://blackrockdigital.github.io/startbootstrap-simple-sidebar/
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+	</body>
+</html>

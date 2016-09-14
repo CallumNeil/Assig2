@@ -1,0 +1,372 @@
+<!doctype html>
+<!-- Assignment BootStrap and jQuery  art.html
+/**********************************************************
+* Author: Callum McLeman
+* Assignment: WE4.0 Web App Assignment, Digital Skills Academy
+* Student ID: DT7003
+* Date : 2016/07/20,21 8:03pm (phew!)
+* 
+* Side-bar css Menu layout courtesy of: http://blackrockdigital.github.io/startbootstrap-simple-sidebar/ - (altered)
+glyph-icons thanks to : http://glyphicons.com/ ( held in directory/folder "/fonts" )
+Jquery ref: api.jQuery.com
+https://www.sitepoint.com/community/t/jquery-slide-left-to-right/4713
+Thubnail and pop-up development thanks to....
+https://designshack.net/articles/css/how-to-build-a-responsive-thumbnail-gallery/
+basic modal/pop-up  creation w/help from https://youtu.be/5ihh0HeMXWw and 
+http://www.queness.com/post/77/simple-jquery-modal-window-tutorial (didn't work my js version(s))
+this one did the trick though... https://youtu.be/WtQvejbZ-8M  - crazy fella!
+Had great fun doing this. ..i would like to put the jquery stuff in a js file later..
+all pics are public domain unless otherwise stated
+***********************************************************/
+-->
+<html>
+	<html lang="en">
+	<head>
+		  <!-- set up environment -->
+		  <meta charset="utf-8">
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<meta name="description" content="Bootstrap and jQuery assignment">
+    	<meta name="author" content="Callum McLeman">
+    	<title>
+			BootStrap and jQuery - Web App Assignment.
+		  </title>
+    	   	
+    	<!-- Bootstrap -->
+    	<link href="css/bootstrap.min.css" rel="stylesheet" >
+      <link href="css/bootstrap.theme.min.css" rel="stylesheet" >
+      <!-- 'home cooked' css file pointer/setup -->
+      <link rel="stylesheet" type="text/css" href="css/assignment2.css">
+      <!-- borrowed and adapted side bar menu css file -->
+      <link href="css/simple-sidebar.css" rel="stylesheet">
+      
+      
+      <!-- jQuery tool-kit files -->
+        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+     
+      
+            
+      <script type="text/javascript">
+          /* slide in entrance.. */
+          $(document).ready(function(){
+              //entrance effect
+              $( "#page-content-wrapper" ).toggle( "slide" );
+              // gallery container        
+              $(function(){
+                $("#myAccordion").accordion();
+              });
+              
+              /* anchor tag with class popup-window was clicked
+              get the scr picture and show in modal div */
+              
+              $("a.popup_image").click(function(){
+                /* get the file name n path from anchor src attribute w/'this' */
+                //alert($(this).find('img').attr('src'));
+                var picFileName = $(this).find('img').attr('src');
+                /* go up the tree, ask parent for the text in h3 title */
+                var picTitleName = $(this).parent().find('h3').html();
+                // change to h2 and make injection string
+                picTitleName = '<center><h2 class="viewTitle">'+picTitleName+'</h2></center>'
+                //alert(picTitleName + ' Title in h2');
+                /* build image tag/element*/
+                var imgElement = '<img id="tempPic" class="img-responsive picfix3" src="';
+                imgElement = imgElement + picFileName + '" alt="Oops!" />';
+      
+                /* 'inject' into pop-_pic */
+                // but first see if it has a pic init from before, if so clear it
+                /*alert(length + ' before if ');
+                if ($("#tempPic").length){
+                  alert(length + 'if ');
+                $("#pop_pic").remove('#tempPic');
+
+                }*/
+                //the above gave me grief, but the one below does it fine...
+                //   but is still around in the DOM...
+                //empty from the inside out...  the button stays in though...
+                $("#pop_pic").find('h2').detach();
+                $("#pop_pic").find('center').detach();
+                $("#pop_pic").find('img').detach();
+                $("#pop_pic").find('center').detach();
+                $("#pop_pic").prepend(picTitleName+'<center>'+imgElement+'</center>');
+                //close/exit button lives under here..
+                /* show */
+                $("#pop_background").fadeIn();
+                $("#pop_pic").fadeIn();
+
+                return false;
+              });
+              //popup viewer end
+
+              /* close func/method for modal div  */
+              $("#close, #pop_background").click(function(){
+                ("#pop_background").fadeOut();
+                $("#pop_pic").fadeOut();
+      
+                return false;
+              });
+
+
+          });
+          //end 'on ready'  
+
+          /* allow esc key as an alternate exit from modal... */
+          $(document).keyup(function(e) {
+
+            if(e.keyCode == 27) {
+              $('#pop_background, #pop_pic').fadeOut(400);
+              return false;
+            }
+          });
+
+          
+      </script>
+	</head>
+
+	<body class="artbody">
+	   <div id="wrapper">
+        <!-- div's for modal popup -->
+        <div id="pop_background"></div>
+        <div id="pop_pic" class="container-fluid">
+            
+            <br><button id="close" class="btn btn-primary btn-sm" role="button">Close</button>
+        </div>
+        <!-- Sidebar -->
+        <div  id="sidebar-wrapper">
+
+            <ul class="sidebar-nav">
+
+                <li>
+                    <a href="assignment2.html">Volcanos</a>
+                </li>
+                <li>
+                    <a href="aura.html">Aura Borealis</a>
+                </li>
+                <li>
+                    <a href="art.html">Art Gallery</a>
+                </li>
+                <li>
+                    <a href="time.html">Time Machine</a>
+                </li>
+                <li>
+                    <a class="dead-link" href="#">About</a>
+                </li>
+                <li>
+                    <a class="dead-link" href="#">Services</a>
+                </li>
+                <li>
+                    <a class="dead-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <!-- end of list layout for menu -->
+            
+            
+            <!-- stick an image in here? -->
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div class="hide-me" id="page-content-wrapper">
+            <div class="container">
+            <!-- fixed 'hamburger' menu btn top left -->
+                <nav class="navbar navbar-fixed-top">
+                    <div class="container">
+                        <!-- setup on/off menu bar button -->
+                        <div class="navbar-header">
+                            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle" data-toggle="tooltip" title="Show/Hide Side-bar">
+                        <span> <img src="fonts/glyphicons-517-menu-hamburger.png"> </span></a>
+
+                        </div>
+                    </div>
+                </nav>
+            <!-- incorporate the grid system for displays -->
+                <div class="row">
+                    <div class="col-md-10">
+                                       
+                        <h1> Aliquam pulvinar sed ex sed maximus.</h1>
+                        <p  class="harder-font-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pulvinar sed ex sed maximus. Etiam eleifend sem risus, porta pretium augue tempus at. Morbi sagittis viverra velit eu finibus. Suspendisse gravida, justo vitae varius rhoncus, mi ligula consequat libero, eu tincidunt ex elit in felis. Integer vel tempus dui. Morbi gravida hendrerit justo et auctor. Morbi feugiat consequat rhoncus. Nunc imperdiet dictum pharetra. Aliquam consectetur ante non erat auctor aliquam. </p>
+                                      
+                    </div> 
+                    <div class="col-md-2">
+                        
+                          <div class="img-corner-box">
+                            <img class="img-responsive picfix2" src="images/pallet.jpg" >
+                          </div>
+                        
+                    </div>
+                      
+                       
+                </div>
+                <div class="row dummy-row"></div>
+                <div class="row">
+                  <div class="col-md-12">
+                  <!-- use the accordian for holding thumbnails.... -->
+                    <div id="myAccordion">
+                      <!-- artbox 1-->
+                      <center><h3 class="arthead">Landscapes</h3></center>
+                      <div class="artbox">
+                          
+                          <div class="galleryItem">
+                            <a class="popup_image" href="#"><img src="images/landscape1.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a class="popup_image" href="#"><img src="images/landscape2.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                           <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/landscape3.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/landscape4.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/landscape5.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+
+                        
+                      </div>
+                      <!-- artbox2 -->
+                      <center><h3 class="arthead">Seascapes</h3></center>
+                      <div class="artbox">
+                          
+                          <div class="galleryItem">
+                            <a class="popup_image" href="#"><img  src="images/seascape1.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a class="popup_image" href="#"><img src="images/seascape2.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                           <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/seascape3.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/seascape4.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/seascape5.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+
+                        
+                      </div>
+                      <!-- artbox3 -->
+                      <center><h3 class="arthead">Still Life</h3></center>
+                      <div class="artbox">
+                          
+                          <div class="galleryItem">
+                            <a class="popup_image" href="#"><img  src="images/still1.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a class="popup_image" href="#"><img src="images/still2.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                           <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/still3.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/still4.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/still5.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+
+                        
+                      </div>
+                      <!-- artbox4 -->
+                      <center><h3 class="arthead">Abstract</h3></center>
+                      <div class="artbox">
+                          
+                          <div class="galleryItem">
+                            <a class="popup_image" href="#"><img  src="images/abstract1.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a class="popup_image" href="#"><img src="images/abstract2.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                           <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/abstract3.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/abstract4.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+                          <div class="galleryItem">
+                            <a  class="popup_image" href="#"><img src="images/abstract5.jpg" alt="Oops!" /></a>
+                            <h3>Title</h3>
+                            <p>Lorem ipsum dolor sit amet...</p>
+                          </div>
+
+                        
+                      </div>
+
+                    </div>
+                    <!-- end accordion -->    
+
+
+
+
+
+
+
+
+                  </div>
+                  <!-- wide col -->
+
+                </div>
+                <!-- gallery row -->               
+
+            </div>
+            <!-- container cllas div -->
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+   <script>
+    //http://blackrockdigital.github.io/startbootstrap-simple-sidebar/
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    $("#boom").click(function(){
+      $(".promo").hide();
+    });
+    </script>
+
+	</body>
+</html>
